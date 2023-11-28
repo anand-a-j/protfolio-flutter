@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/main/main_section.dart';
+import 'package:portfolio/core/providers/contact_form_provider.dart';
 import 'package:portfolio/core/providers/scroll_provider.dart';
 import 'package:portfolio/utils/theme.dart';
-import 'package:portfolio/app/section/home/home_desktop.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -10,6 +10,7 @@ void main() {
     MultiProvider(
       providers: [
          ChangeNotifierProvider(create: (context) => ScrollProvider()),
+         ChangeNotifierProvider(create: (context) => ContactFormProvider()),
       ],
       child: const MyApp(),
     )
