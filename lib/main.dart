@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/section/main/main_section.dart';
 import 'package:portfolio/core/providers/scroll_provider.dart';
 import 'package:portfolio/utils/theme.dart';
 import 'package:portfolio/app/section/home/home_desktop.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'Portfolio',
       theme: buildDarkTheme(),
       debugShowCheckedModeBanner: false,
-      home: HomeDesktop(),
+      home: MainSection(),
     );
   }
 }
