@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/contact/contact_desktop.dart';
+import 'package:portfolio/app/section/footer/footer_desktop.dart';
 import 'package:portfolio/app/section/home/home_desktop.dart';
 import 'package:portfolio/app/section/projects/project_desktop.dart';
 import 'package:portfolio/utils/colors.dart';
 
-List<Widget> body = [HomeDesktop(), ProjectDesktop(),ContactDesktop()];
+List<Widget> body = [HomeDesktop(), ProjectDesktop(),ContactDesktop(),FooterDesktop()];
 
 const heading2 =
     TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: kwhite);

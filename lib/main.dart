@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/main/main_section.dart';
+import 'package:portfolio/core/providers/animated_button_provider.dart';
 import 'package:portfolio/core/providers/contact_form_provider.dart';
 import 'package:portfolio/core/providers/scroll_provider.dart';
 import 'package:portfolio/utils/theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-         ChangeNotifierProvider(create: (context) => ScrollProvider()),
-         ChangeNotifierProvider(create: (context) => ContactFormProvider()),
-      ],
-      child: const MyApp(),
-    )
-  );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => ScrollProvider()),
+      ChangeNotifierProvider(create: (context) => ContactFormProvider()),
+      ChangeNotifierProvider(create: (context) => AnimateProvider()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -30,4 +30,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

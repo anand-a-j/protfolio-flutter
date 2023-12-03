@@ -10,6 +10,11 @@ class ContactFormProvider extends ChangeNotifier {
   TextEditingController get emailController => _emailController;
   TextEditingController get subjectController => _subjectController;
   TextEditingController get descriptionController => _descriptionController;
-
+  
+  onSubmit() {
+    if(descriptionController.text.isEmpty) {
+    
+    }
+  }
   
 }
