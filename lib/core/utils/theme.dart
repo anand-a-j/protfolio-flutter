@@ -12,7 +12,6 @@ ThemeData buildDarkTheme() {
             displayMedium: const TextStyle(
               fontFamily: 'Poppins',
               fontWeight: FontWeight.bold,
-              fontSize: 56,
               color: kwhite,
             ),
             headlineMedium: const TextStyle(

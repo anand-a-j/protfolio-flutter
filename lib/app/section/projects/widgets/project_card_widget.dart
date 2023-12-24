@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:portfolio/app/section/projects/model/project_model.dart';
 import 'package:portfolio/app/utils/utils.dart';
 import 'package:portfolio/core/providers/animated_provider.dart';
+import 'package:portfolio/core/utils/assets.dart';
 import 'package:portfolio/core/utils/colors.dart';
+import 'package:portfolio/core/utils/functions.dart';
 import 'package:provider/provider.dart';
 
 class ProjectCardWidget extends StatelessWidget {
@@ -13,6 +17,7 @@ class ProjectCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.sizeOf(context).height;
     return Consumer<AnimateProvider>(builder: (context, animate, _) {
       return InkWell(
         onTap: () {
@@ -29,9 +34,10 @@ class ProjectCardWidget extends StatelessWidget {
           curve: Curves.easeInOutCubic,
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: card,
-              boxShadow: boxShadow),
+            borderRadius: BorderRadius.circular(10),
+            color: card,
+            boxShadow: boxShadow,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,20 +55,38 @@ class ProjectCardWidget extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                "Project Name",
-                style: heading3,
+                projects[index].title,
+                style: Theme.of(context).textTheme.titleMedium,
+                textScaler: TextScaler.linear(textScaleFactor(context)),
               ),
               const SizedBox(height: 10),
               SizedBox(
-                height: 100,
                 width: double.infinity,
                 child: Text(
-                  "ladksjflk jlaksdj lkasjfl ajslkfd jaslkdfj alsj fla fjals aslkf lkasjlasjfla jklsad lkasl a fjlaksjdf lkaflk ajflksad jlkasj flksaj flkaj laj ljfladsnfaslkfnalkflksadfnadlkcnalkdjf",
-                  style: body1,
-                  maxLines: 6,
+                  projects[index].description,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textScaler: TextScaler.linear(textScaleFactor(context)),
+                  maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                 ),
-              )
+              ),
+            
+              Flexible(
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return SvgPicture.asset(
+                        projects[index].stackUrls[index],
+                        height: 15.0,
+                        width: 15.0,
+                        fit: BoxFit.contain,
+                      );
+                    },
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(width: 3),
+                    itemCount: projects[index].stackUrls.length,),
+              ),
             ],
           ),
         ),

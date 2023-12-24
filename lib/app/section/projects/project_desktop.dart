@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/section/projects/model/project_model.dart';
 import 'package:portfolio/app/utils/utils.dart';
 import 'widgets/project_card_widget.dart';
 
@@ -26,12 +27,12 @@ class ProjectDesktop extends StatelessWidget {
           SizedBox(height: 70),
           GridView.builder(
             shrinkWrap: true,
-            itemCount: 4,
+            itemCount: projects.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,
-                childAspectRatio: 0.74),
+                childAspectRatio: 0.75),
             itemBuilder: (context, index) {
               return ProjectCardWidget(index: index);
             },

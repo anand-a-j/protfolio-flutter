@@ -7,4 +7,6 @@ class AssetConstants {
   static const String linkedinLogo = 'assets/svgs/linkedin.svg';
   static const String whatsappLogo = 'assets/svgs/whatsapp.svg';
   static const String githubLogo = 'assets/svgs/github.svg';
+  static const String flutterLogo = 'assets/svgs/flutter.svg';
+  static const String firebaseLogo = 'assets/svgs/firebase.svg';
 }

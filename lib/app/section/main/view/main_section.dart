@@ -3,6 +3,7 @@ import 'package:portfolio/app/section/main/view/widget/custom_appbar_button.dart
 import 'package:portfolio/core/providers/scroll_provider.dart';
 import 'package:portfolio/app/utils/utils.dart';
 import 'package:portfolio/core/utils/colors.dart';
+import 'package:portfolio/core/utils/functions.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -21,9 +22,11 @@ class MainSection extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: bgColor,
         elevation: 0,
-        title:const  Padding(
+        title:  Padding(
           padding: const EdgeInsets.only(left: 150),
-          child: Text('</Portfolio>',style: TextStyle(fontFamily: 'Pacifico'),),
+          child: Text('</Portfolio>',style: TextStyle(fontFamily: 'Pacifico'),
+            textScaler: TextScaler.linear(textScaleFactor(context)),
+          ),
         ),
         actions: [
           CustomAppBarButton(title: 'Home', onPressed: (){}),

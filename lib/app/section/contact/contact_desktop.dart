@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/contact/widgets/form_custom_button.dart';
 import 'package:portfolio/app/utils/utils.dart';
 import 'package:portfolio/core/providers/contact_form_provider.dart';
+import 'package:portfolio/core/utils/functions.dart';
 import 'package:provider/provider.dart';
 import 'widgets/custom_textfield.dart';
 
@@ -20,14 +21,16 @@ class ContactDesktop extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-         const Text(
+         Text(
             "Contact",
             style: heading2,
+            textScaler: TextScaler.linear(textScaleFactor(context)),
           ),
           const SizedBox(height: 20),
-          const Text(
+           Text(
             "Feel free to reach out to me for any questions or opportunities!",
             style: body1,
+            textScaler: TextScaler.linear(textScaleFactor(context)),
           ),
           const SizedBox(height: 50),
           Container(
@@ -42,7 +45,8 @@ class ContactDesktop extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("Email Me🚀", style: heading2),
+                  Text("Email Me🚀", style: heading2, textScaler:
+                                TextScaler.linear(textScaleFactor(context)),),
                   const SizedBox(height: 15),
                   CustomTextfield(
                     hintText: "Your Name",

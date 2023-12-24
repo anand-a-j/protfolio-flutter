@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/home/widgets/home_custom_button.dart';
+import 'package:portfolio/core/utils/functions.dart';
 import 'package:portfolio/core/utils/strings.dart';
 import 'package:lottie/lottie.dart';
 
@@ -43,12 +44,15 @@ class HomeDesktop extends StatelessWidget {
                          Text(
                             "Hi, I am Anand A J",
                             style: Theme.of(context).textTheme.displayMedium,
+                            textScaler: TextScaler.linear(textScaleFactor(context)),
                           ),
                           SizedBox(height: width * 0.01),
                            Text(
                             "Flutter Developer",
                             style: Theme.of(context).textTheme.headlineMedium,
                             textAlign: TextAlign.justify,
+                             textScaler:
+                                TextScaler.linear(textScaleFactor(context)),
                           ),
                           SizedBox(height: width * 0.01),
                           Container(
@@ -59,6 +63,8 @@ class HomeDesktop extends StatelessWidget {
                             child: Text(
                               aboutMe,
                               style: Theme.of(context).textTheme.titleMedium,
+                               textScaler:
+                                  TextScaler.linear(textScaleFactor(context)),
                               textAlign: TextAlign.justify,
                               maxLines: 3,
                             ),
