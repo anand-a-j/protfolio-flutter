@@ -14,7 +14,7 @@ class ContactDesktop extends StatelessWidget {
     double height = MediaQuery.sizeOf(context).height;
     return Container(
      
-      margin: const EdgeInsets.symmetric(horizontal: 150, vertical: 70),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 70),
       height: height,
       width: width,
       child: Column(

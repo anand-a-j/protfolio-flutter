@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/home/widgets/home_custom_button.dart';
-import 'package:portfolio/utils/colors.dart';
-import 'package:portfolio/utils/strings.dart';
+import 'package:portfolio/core/utils/strings.dart';
 import 'package:lottie/lottie.dart';
 
 class HomeDesktop extends StatelessWidget {
@@ -15,16 +14,16 @@ class HomeDesktop extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          // first screen-----------------------------------------------------------------------------------
           Stack(
             children: [
               // Container(
-
-              //   height: height,
+              //   height: height - 150,
               //   width: width,
               //   child: LottieBuilder.asset(
-              //     'assets/lottie/bg.json',
-              //     fit: BoxFit.fitWidth,
+              //     'assets/lottie/spacebg.json',
+              //     height: height - 300,
+              //     width: width,
+              //     fit: BoxFit.cover,
               //   ),
               // ),
               Container(
@@ -32,7 +31,6 @@ class HomeDesktop extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 150, vertical: 50),
                 height: height,
                 width: width,
-                // color: Colors.green.shade300,
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,32 +40,25 @@ class HomeDesktop extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            "Hi, I am\nAnand A J",
-                            style: TextStyle(
-                                fontSize: 56,
-                                fontWeight: FontWeight.bold,
-                                color: kwhite),
+                         Text(
+                            "Hi, I am Anand A J",
+                            style: Theme.of(context).textTheme.displayMedium,
                           ),
-                          const Text(
+                          SizedBox(height: width * 0.01),
+                           Text(
                             "Flutter Developer",
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: primaryColor),
+                            style: Theme.of(context).textTheme.headlineMedium,
                             textAlign: TextAlign.justify,
                           ),
+                          SizedBox(height: width * 0.01),
                           Container(
-                            // color: Colors.amber,
-                            height: MediaQuery.sizeOf(context).height * 0.15,
+                            
+                            height: MediaQuery.sizeOf(context).height * 0.08,
                             width: MediaQuery.sizeOf(context).width * 0.39,
 
-                            child: const Text(
+                            child: Text(
                               aboutMe,
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w500,
-                                  color: textSecondary),
+                              style: Theme.of(context).textTheme.titleMedium,
                               textAlign: TextAlign.justify,
                               maxLines: 3,
                             ),
@@ -117,7 +108,6 @@ class HomeDesktop extends StatelessWidget {
               ),
             ],
           ),
-          // project Screen screen-----------------------------------------------------------------------------------
         ],
       ),
     );

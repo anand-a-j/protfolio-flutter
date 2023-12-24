@@ -3,9 +3,16 @@ import 'package:portfolio/app/section/contact/contact_desktop.dart';
 import 'package:portfolio/app/section/footer/footer_desktop.dart';
 import 'package:portfolio/app/section/home/home_desktop.dart';
 import 'package:portfolio/app/section/projects/project_desktop.dart';
-import 'package:portfolio/utils/colors.dart';
+import 'package:portfolio/app/section/services/service_desktop.dart';
+import 'package:portfolio/core/utils/colors.dart';
 
-List<Widget> body = [HomeDesktop(), ProjectDesktop(),ContactDesktop(),FooterDesktop()];
+List<Widget> body = [
+  HomeDesktop(),
+  ServiceIDoDesktop(),
+  ProjectDesktop(),
+  ContactDesktop(),
+  FooterDesktop(),
+];
 
 const heading2 =
     TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: kwhite);
@@ -13,8 +20,7 @@ const heading2 =
 const heading3 =
     TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: textSecondary);
 
-    const body1 =
-    TextStyle(fontSize: 14, color: textSecondary);
+const body1 = TextStyle(fontSize: 14, color: textSecondary);
 
 List<BoxShadow>? boxShadow = const [
   BoxShadow(

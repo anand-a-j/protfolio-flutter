@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/utils/colors.dart';
+import 'package:portfolio/core/utils/colors.dart';
 
 class FormCustomButton extends StatelessWidget {
   const FormCustomButton({
