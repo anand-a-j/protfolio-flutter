@@ -9,7 +9,7 @@ Future<void> openUrlLink(String url) async {
   await launchUrl(Uri.parse(url));
 }
 
-
+// calculate text scale factor 
 double textScaleFactor(BuildContext context,
     {double maxTextScaleFactor = 1, double defaultScaleFactor = 0.5}) {
   final width = MediaQuery.of(context).size.width;

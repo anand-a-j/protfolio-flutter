@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/main/view/widget/custom_appbar_button.dart';
+import 'package:portfolio/core/providers/scroll_provider.dart';
+import 'package:provider/provider.dart';
 
 class FooterNavigationButtons extends StatelessWidget {
   const FooterNavigationButtons({
@@ -8,28 +10,29 @@ class FooterNavigationButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     var width = MediaQuery.sizeOf(context).width;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomAppBarButton(
           title: 'Home',
-          onPressed: () {},
+          onPressed: () => scrollProvider.jumpTo(0),
         ),
         SizedBox(width: width * 0.006),
         CustomAppBarButton(
           title: 'Services',
-          onPressed: () {},
+          onPressed: () => scrollProvider.jumpTo(1),
         ),
      SizedBox(width: width * 0.006),
         CustomAppBarButton(
           title: 'Projects',
-          onPressed: () {},
+          onPressed: () => scrollProvider.jumpTo(2),
         ),
        SizedBox(width: width * 0.006),
         CustomAppBarButton(
           title: 'Contacts',
-          onPressed: () {},
+          onPressed: () => scrollProvider.jumpTo(3),
         ),
       ],
     );
