@@ -3,8 +3,8 @@ import 'package:portfolio/app/section/projects/model/project_model.dart';
 import 'package:portfolio/app/utils/utils.dart';
 import 'widgets/project_card_widget.dart';
 
-class ProjectDesktop extends StatelessWidget {
-  const ProjectDesktop({super.key});
+class ProjectTablet extends StatelessWidget {
+  const ProjectTablet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +29,15 @@ class ProjectDesktop extends StatelessWidget {
             shrinkWrap: true,
             itemCount: projects.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: width > 1350 ? 4 : 3,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                childAspectRatio: width > 1350 ? 0.75 : 0.80),
+              crossAxisCount: width < 1024 ? 2 : 3,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              childAspectRatio: 0.75,
+            ),
             itemBuilder: (context, index) {
               return ProjectCardWidget(index: index);
             },
-          )
+          ),
         ],
       ),
     );

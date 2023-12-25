@@ -11,10 +11,10 @@ class HomeCustomButton extends StatelessWidget {
     return Consumer<AnimateProvider>(builder: (context, button, _) {
       return InkWell(
         onTap: () {
-          button.setIshover(true,0);
+          button.setIshover(true, 0);
         },
         onHover: (isHover) {
-          button.setIshover(isHover,0);
+          button.setIshover(isHover, 0);
         },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
@@ -22,12 +22,13 @@ class HomeCustomButton extends StatelessWidget {
           height: button.isHover ? 51 : 50,
           width: button.isHover ? 220 : 200,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              gradient: buttonGradient),
+            borderRadius: BorderRadius.circular(10),
+            gradient: button.isHover ? buttonHoverGradient : buttonGradient,
+          ),
           child: Center(
             child: Text(
               "Download Resume",
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
         ),

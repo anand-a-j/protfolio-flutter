@@ -18,6 +18,7 @@ class ProjectCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
+     var width = MediaQuery.sizeOf(context).width;
     return Consumer<AnimateProvider>(builder: (context, animate, _) {
       return InkWell(
         onTap: () {
@@ -33,6 +34,8 @@ class ProjectCardWidget extends StatelessWidget {
           duration: const Duration(milliseconds: 800),
           curve: Curves.easeInOutCubic,
           padding: const EdgeInsets.all(10),
+          width: width > 1024 ? null : width * 0.5,
+          // margin: width>1024 ? null : EdgeInsets.all(20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: card,
@@ -43,8 +46,8 @@ class ProjectCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: MediaQuery.sizeOf(context).width * 0.12,
-                width: MediaQuery.sizeOf(context).width * 0.2,
+                height: width > 1024 ? width * 0.12 : width * 0.28,
+
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(

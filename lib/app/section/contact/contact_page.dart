@@ -6,36 +6,35 @@ import 'package:portfolio/core/utils/functions.dart';
 import 'package:provider/provider.dart';
 import 'widgets/custom_textfield.dart';
 
-class ContactDesktop extends StatelessWidget {
-  const ContactDesktop({super.key});
+class ContactPage extends StatelessWidget {
+  const ContactPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
     return Container(
-     
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 70),
+      margin:  EdgeInsets.symmetric(horizontal: 10, vertical: width > 1024 ?  70 : 10),
       height: height,
       width: width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-         Text(
+          Text(
             "Contact",
             style: heading2,
             textScaler: TextScaler.linear(textScaleFactor(context)),
           ),
-          const SizedBox(height: 20),
-           Text(
+          const SizedBox(height: 15),
+          Text(
             "Feel free to reach out to me for any questions or opportunities!",
             style: body1,
             textScaler: TextScaler.linear(textScaleFactor(context)),
           ),
-          const SizedBox(height: 50),
+          SizedBox(height: width > 1024 ? 50 : 15),
           Container(
             width: 550,
-            margin: const EdgeInsets.all(20),
+            margin: EdgeInsets.all(width > 1024 ?20 : 10),
             padding: const EdgeInsets.all(25),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -45,8 +44,11 @@ class ContactDesktop extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Email Me🚀", style: heading2, textScaler:
-                                TextScaler.linear(textScaleFactor(context)),),
+                  Text(
+                    "Email Me🚀",
+                    style: heading2,
+                    textScaler: TextScaler.linear(textScaleFactor(context)),
+                  ),
                   const SizedBox(height: 15),
                   CustomTextfield(
                     hintText: "Your Name",

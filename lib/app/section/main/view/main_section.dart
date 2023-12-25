@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/main/view/widget/custom_appbar_button.dart';
+import 'package:portfolio/app/section/main/view/widget/drawer_mobile.dart';
 import 'package:portfolio/core/providers/scroll_provider.dart';
 import 'package:portfolio/app/utils/utils.dart';
 import 'package:portfolio/core/utils/colors.dart';
@@ -13,14 +14,14 @@ class MainSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
-
+    var width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
         backgroundColor: bgColor,
         elevation: 0,
         title: Padding(
-          padding: const EdgeInsets.only(left: 150),
+          padding: EdgeInsets.only(left: width > 1024 ?  150:10),
           child: Text(
             '<Portfolio/>',
             style: const TextStyle(fontFamily: 'Pacifico'),
@@ -29,10 +30,10 @@ class MainSection extends StatelessWidget {
             ),
           ),
         ),
-        actions: [
+        actions: width > 1024 ? [
           CustomAppBarButton(
             title: 'Home',
-            onPressed: ()=> scrollProvider.jumpTo(0),
+            onPressed: () => scrollProvider.jumpTo(0),
           ),
           const SizedBox(width: 10),
           CustomAppBarButton(
@@ -50,8 +51,9 @@ class MainSection extends StatelessWidget {
             onPressed: () => scrollProvider.jumpTo(3),
           ),
           const SizedBox(width: 100),
-        ],
+        ] : null
       ),
+       endDrawer: width < 1024 ? const  DrawerMobile() : null,
       body: ScrollablePositionedList.builder(
         shrinkWrap: true,
         padding: EdgeInsets.zero,

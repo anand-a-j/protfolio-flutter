@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/section/contact/contact_desktop.dart';
+import 'package:portfolio/app/section/contact/contact_page.dart';
 import 'package:portfolio/app/section/footer/footer_desktop.dart';
-import 'package:portfolio/app/section/home/home_desktop.dart';
+import 'package:portfolio/app/section/home/home.dart';
+import 'package:portfolio/app/section/projects/project.dart';
 import 'package:portfolio/app/section/projects/project_desktop.dart';
-import 'package:portfolio/app/section/services/service_desktop.dart';
+import 'package:portfolio/app/section/services/service.dart';
 import 'package:portfolio/core/utils/colors.dart';
 
 List<Widget> body = [
-  HomeDesktop(),
-  ServiceIDoDesktop(),
-  ProjectDesktop(),
-  ContactDesktop(),
+  HomePage(),
+  ServicePage(),
+  ProjectPage(),
+  ContactPage(),
   FooterDesktop(),
 ];
 

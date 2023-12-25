@@ -19,3 +19,13 @@ const Gradient buttonGradient = LinearGradient(
     Colors.purple,
   ],
 );
+
+Gradient buttonHoverGradient = LinearGradient(
+  begin: Alignment.topRight,
+  end: Alignment.bottomLeft,
+  colors: [
+    
+    Colors.purple.shade400,
+    primaryColor,
+  ],
+);
