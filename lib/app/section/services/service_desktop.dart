@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app/utils/utils.dart';
 import 'package:portfolio/core/utils/assets.dart';
 import 'package:portfolio/core/utils/functions.dart';
+import 'package:portfolio/core/widgets/title_rich_text.dart';
 import 'widget/service_info_card.dart';
 
 class ServiceIDoDesktop extends StatelessWidget {
@@ -18,13 +19,12 @@ class ServiceIDoDesktop extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-        Text(
-            "What I can do?",
-            style: heading2,
-            textScaler: TextScaler.linear(textScaleFactor(context)),
+          TitleRichText(
+            titleOne: "About",
+            titleTwo: "Me",
           ),
           const SizedBox(height: 20),
-       Text(
+          Text(
             "Since the begining of my journey as a developer, I have work in these technologies.My main strength lies\nin flutter development from last one year",
             style: body1,
             textScaler: TextScaler.linear(textScaleFactor(context)),
@@ -70,4 +70,3 @@ class ServiceIDoDesktop extends StatelessWidget {
     );
   }
 }
-

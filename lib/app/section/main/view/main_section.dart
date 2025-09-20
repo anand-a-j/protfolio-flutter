@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/main/view/widget/custom_appbar_button.dart';
 import 'package:portfolio/app/section/main/view/widget/drawer_mobile.dart';
@@ -17,43 +19,44 @@ class MainSection extends StatelessWidget {
     var width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: bgColor,
-      appBar: AppBar(
-        backgroundColor: bgColor,
-        elevation: 0,
-        title: Padding(
-          padding: EdgeInsets.only(left: width > 1024 ?  150:10),
-          child: Text(
-            '<Portfolio/>',
-            style: const TextStyle(fontFamily: 'Pacifico'),
-            textScaler: TextScaler.linear(
-              textScaleFactor(context),
-            ),
-          ),
-        ),
-        actions: width > 1024 ? [
-          CustomAppBarButton(
-            title: 'Home',
-            onPressed: () => scrollProvider.jumpTo(0),
-          ),
-          const SizedBox(width: 10),
-          CustomAppBarButton(
-            title: 'Services',
-            onPressed: () => scrollProvider.jumpTo(1),
-          ),
-          const SizedBox(width: 10),
-          CustomAppBarButton(
-            title: 'Projects',
-            onPressed: () => scrollProvider.jumpTo(2),
-          ),
-          const SizedBox(width: 10),
-          CustomAppBarButton(
-            title: 'Contacts',
-            onPressed: () => scrollProvider.jumpTo(3),
-          ),
-          const SizedBox(width: 100),
-        ] : null
-      ),
-       endDrawer: width < 1024 ? const  DrawerMobile() : null,
+      appBar: buildGlassAppBar(width, context, scrollProvider),
+      // appBar: AppBar(
+      //   backgroundColor: bgColor,
+      //   elevation: 0,
+      //   title: Padding(
+      //     padding: EdgeInsets.only(left: width > 1024 ?  150:10),
+      //     child: Text(
+      //       '<Anand/>',
+      //       style: const TextStyle(fontFamily: 'Pacifico'),
+      //       textScaler: TextScaler.linear(
+      //         textScaleFactor(context),
+      //       ),
+      //     ),
+      //   ),
+      //   actions: width > 1024 ? [
+      //     CustomAppBarButton(
+      //       title: 'Home',
+      //       onPressed: () => scrollProvider.jumpTo(0),
+      //     ),
+      //     const SizedBox(width: 10),
+      //     CustomAppBarButton(
+      //       title: 'Services',
+      //       onPressed: () => scrollProvider.jumpTo(1),
+      //     ),
+      //     const SizedBox(width: 10),
+      //     CustomAppBarButton(
+      //       title: 'Projects',
+      //       onPressed: () => scrollProvider.jumpTo(2),
+      //     ),
+      //     const SizedBox(width: 10),
+      //     CustomAppBarButton(
+      //       title: 'Contacts',
+      //       onPressed: () => scrollProvider.jumpTo(3),
+      //     ),
+      //     const SizedBox(width: 100),
+      //   ] : null
+      // ),
+      endDrawer: width < 1024 ? const DrawerMobile() : null,
       body: ScrollablePositionedList.builder(
         shrinkWrap: true,
         padding: EdgeInsets.zero,
@@ -63,4 +66,57 @@ class MainSection extends StatelessWidget {
       ),
     );
   }
+}
+
+AppBar buildGlassAppBar(double width, BuildContext context, scrollProvider) {
+  return AppBar(
+    backgroundColor: bgColor.withOpacity(0.1), // semi-transparent
+    elevation: 0,
+    flexibleSpace: ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15), // blur intensity
+        child: Container(
+          color: bgColor.withOpacity(0.05), // frosted overlay tint
+        ),
+      ),
+    ),
+    title: Padding(
+      padding: EdgeInsets.only(left: width > 1024 ? 150 : 10),
+      child: Text(
+        '<Portfolio/>',
+        style: const TextStyle(
+          fontFamily: 'Pacifico',
+          fontSize: 20,
+          color: Colors.white, // text visible on glass
+        ),
+        textScaler: TextScaler.linear(
+          textScaleFactor(context),
+        ),
+      ),
+    ),
+    actions: width > 1024
+        ? [
+            CustomAppBarButton(
+              title: 'Home',
+              onPressed: () => scrollProvider.jumpTo(0),
+            ),
+            const SizedBox(width: 10),
+            CustomAppBarButton(
+              title: 'Services',
+              onPressed: () => scrollProvider.jumpTo(1),
+            ),
+            const SizedBox(width: 10),
+            CustomAppBarButton(
+              title: 'Projects',
+              onPressed: () => scrollProvider.jumpTo(2),
+            ),
+            const SizedBox(width: 10),
+            CustomAppBarButton(
+              title: 'Contacts',
+              onPressed: () => scrollProvider.jumpTo(3),
+            ),
+            const SizedBox(width: 100),
+          ]
+        : null,
+  );
 }

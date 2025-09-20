@@ -9,8 +9,7 @@ import 'package:provider/provider.dart';
 import 'app/section/main/controller/main_section_provider.dart';
 
 void main() {
-  runApp(
-  MultiProvider(
+  runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => ScrollProvider()),
       ChangeNotifierProvider(create: (context) => ContactFormProvider()),
@@ -29,9 +28,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Portfolio',
+      themeMode: ThemeMode.dark,
       theme: buildDarkTheme(),
+      darkTheme: buildDarkTheme(),
       debugShowCheckedModeBanner: false,
       home: MainSection(),
     );
-  }
+  }    
 }

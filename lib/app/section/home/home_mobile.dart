@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/section/home/widgets/home_custom_button.dart';
+import 'package:portfolio/app/section/home/widgets/home_button.dart';
 import 'package:portfolio/core/utils/functions.dart';
 import 'package:portfolio/core/utils/strings.dart';
 import 'package:lottie/lottie.dart';
@@ -86,7 +86,7 @@ class HomeMobile extends StatelessWidget {
                             ),
                           ),
                            SizedBox(height: height*0.05),
-                          const HomeCustomButton()
+                
                         ],
                       ),
                     ],
