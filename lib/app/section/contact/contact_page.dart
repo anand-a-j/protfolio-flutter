@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/section/contact/widgets/form_custom_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/utils/utils.dart';
-import 'package:portfolio/core/providers/contact_form_provider.dart';
+import 'package:portfolio/core/constants/assets.dart';
+import 'package:portfolio/core/utils/colors.dart';
 import 'package:portfolio/core/utils/functions.dart';
-import 'package:provider/provider.dart';
-import 'widgets/custom_textfield.dart';
+
+import 'widgets/contact_email_card.dart';
+import 'widgets/contact_footer_text.dart';
+import 'widgets/contact_social_button.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -14,16 +17,24 @@ class ContactPage extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
     return Container(
-      margin:  EdgeInsets.symmetric(horizontal: 10, vertical: width > 1024 ?  70 : 10),
-      height: height,
+      margin: EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: width > 1024 ? 0 : 10,
+      ),
+      height: height / 2,
       width: width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Text(
-            "Contact",
-            style: heading2,
-            textScaler: TextScaler.linear(textScaleFactor(context)),
+            "Grab a ☕ & Let's Talk",
+            style: TextStyle(
+              fontSize: 48,
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           const SizedBox(height: 15),
           Text(
@@ -31,51 +42,38 @@ class ContactPage extends StatelessWidget {
             style: body1,
             textScaler: TextScaler.linear(textScaleFactor(context)),
           ),
-          SizedBox(height: width > 1024 ? 50 : 15),
-          Container(
-            width: 550,
-            margin: EdgeInsets.all(width > 1024 ?20 : 10),
-            padding: const EdgeInsets.all(25),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: boxShadow,
-            ),
-            child: Consumer<ContactFormProvider>(builder: (context, form, _) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          SizedBox(height: width > 1024 ? 40 : 15),
+          Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxWidth: 600,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                spacing: 10,
                 children: [
-                  Text(
-                    "Email Me🚀",
-                    style: heading2,
-                    textScaler: TextScaler.linear(textScaleFactor(context)),
+                  ContactSocialButton(
+                    image: Assets.github,
+                    onTap: () {},
                   ),
-                  const SizedBox(height: 15),
-                  CustomTextfield(
-                    hintText: "Your Name",
-                    controller: form.nameController,
+                  // add more social icons here if needed
+                  ContactSocialButton(
+                    image: Assets.linkedin,
+                    onTap: () {},
                   ),
-                  const SizedBox(height: 15),
-                  CustomTextfield(
-                    hintText: "Your Email",
-                    controller: form.emailController,
+                  ContactSocialButton(
+                    image: Assets.twitter,
+                    onTap: () {},
                   ),
-                  const SizedBox(height: 15),
-                  CustomTextfield(
-                    hintText: "Your Subject",
-                    controller: form.subjectController,
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextfield(
-                    hintText: "Your Message",
-                    controller: form.descriptionController,
-                    maxLines: 4,
-                  ),
-                  const SizedBox(height: 15),
-                  const FormCustomButton(),
+
+                  ContactEmailCard(),
                 ],
-              );
-            }),
-          )
+              ),
+            ),
+          ),
+          const SizedBox(height: 100),
+          ContactFooterText(),
+          const SizedBox(height: 50),
         ],
       ),
     );

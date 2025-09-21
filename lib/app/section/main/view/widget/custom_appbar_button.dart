@@ -45,10 +45,7 @@ class CustomAppBarButton extends StatelessWidget {
             child: Text(
               title,
               style: const TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
-                  color: kwhite
-                  ),
+                  fontFamily: 'Poppins', fontSize: 14, color: kwhite),
             ),
           ),
         ),

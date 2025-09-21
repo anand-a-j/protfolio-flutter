@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/core/utils/colors.dart';
 
-import '../../../core/utils/app_consts.dart';
+import '../../../core/constants/app_consts.dart';
+import '../../../core/constants/assets.dart';
 import '../../../core/widgets/title_rich_text.dart';
 
 class SkillsDesktop extends StatelessWidget {
@@ -13,7 +16,7 @@ class SkillsDesktop extends StatelessWidget {
     return Container(
       height: height / 2,
       width: width,
-      color: Colors.red,
+      // color: Colors.red,
       margin: const EdgeInsets.symmetric(
         horizontal: AppConsts.pWebSide,
         // vertical: AppConsts.pWebVeritical,
@@ -59,26 +62,13 @@ class ContinuousScrollPage extends StatefulWidget {
 
 class _ContinuousScrollPageState extends State<ContinuousScrollPage> {
   final ScrollController _scrollController = ScrollController();
-  double _scrollSpeed = 50; // pixels per second
+  final int _itemCount = 20;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _startScrolling());
-  }
 
-  void _startScrolling() async {
-    double maxScroll = _scrollController.position.maxScrollExtent;
-    double pixels = _scrollController.offset;
-
-    while (mounted) {
-      await Future.delayed(Duration(milliseconds: 16));
-      pixels += _scrollSpeed * 0.016; // 16ms frame
-      if (pixels >= maxScroll) {
-        pixels = 0; // loop back to start
-      }
-      _scrollController.jumpTo(pixels);
-    }
+    // Jump to a "middle" offset so you can scroll both directions infinitely
   }
 
   @override
@@ -88,23 +78,40 @@ class _ContinuousScrollPageState extends State<ContinuousScrollPage> {
       child: ListView.builder(
         controller: _scrollController,
         scrollDirection: Axis.horizontal,
-        itemCount: 20, // number of cards
         itemBuilder: (context, index) {
+          // Loop items using modulo
+          final realIndex = index % _itemCount;
+
           return Container(
             width: 140,
-            margin: EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Color(0xff3d3d3d),
+              color: primaryContainer,
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
                 width: 1,
-                color: Colors.grey.shade600,
+                color: primaryContainerBorder,
               ),
             ),
             child: Center(
-              child: Text(
-                'Card $index',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+              child: Column(
+                spacing: 20,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    Assets.flutter,
+                    height: 34,
+                    width: 34,
+                  ),
+                  Text(
+                    'Flutter $realIndex',
+                    style: TextStyle(
+                      color: onPrimaryContainer,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
               ),
             ),
           );
@@ -131,7 +138,7 @@ class BlackFadeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
+      width: 150,
       height: 150,
       decoration: BoxDecoration(
         gradient: LinearGradient(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/home/widgets/home_button.dart';
 import 'package:portfolio/core/utils/functions.dart';
-import 'package:portfolio/core/utils/strings.dart';
+import 'package:portfolio/core/constants/strings.dart';
 import 'package:lottie/lottie.dart';
 
 class HomeTablet extends StatelessWidget {

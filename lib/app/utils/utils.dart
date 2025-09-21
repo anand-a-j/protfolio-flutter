@@ -12,11 +12,11 @@ import 'package:portfolio/core/utils/colors.dart';
 List<Widget> body = [
   HomePage(),
   AboutPage(),
-  SkillsPage(),
+  // SkillsPage(),
   // ServicePage(),
   ProjectPage(),
   ContactPage(),
-  FooterDesktop(),
+  // FooterDesktop(),
 ];
 
 const heading2 =

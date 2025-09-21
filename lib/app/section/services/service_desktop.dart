@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/utils/utils.dart';
-import 'package:portfolio/core/utils/assets.dart';
+import 'package:portfolio/core/constants/assets.dart';
 import 'package:portfolio/core/utils/functions.dart';
 import 'package:portfolio/core/widgets/title_rich_text.dart';
 import 'widget/service_info_card.dart';
@@ -40,11 +40,11 @@ class ServiceIDoDesktop extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ServiceInfoCard(
-                      iconUrl: AssetConstants.androidLogo,
+                      iconUrl: Assets.android,
                       title: 'Andorid App Development',
                       subtitle: ''),
                   ServiceInfoCard(
-                      iconUrl: AssetConstants.appleLogo,
+                      iconUrl: Assets.apple,
                       title: 'Ios App Development',
                       subtitle: '')
                 ],
@@ -54,11 +54,11 @@ class ServiceIDoDesktop extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ServiceInfoCard(
-                      iconUrl: AssetConstants.uiuxLogo,
+                      iconUrl: Assets.uiux,
                       title: 'UI/UX Designing',
                       subtitle: ''),
                   ServiceInfoCard(
-                      iconUrl: AssetConstants.webDevelopmentLogo,
+                      iconUrl: Assets.web,
                       title: 'Web Development',
                       subtitle: '')
                 ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/services/widget/service_info_card.dart';
 import 'package:portfolio/app/utils/utils.dart';
-import 'package:portfolio/core/utils/assets.dart';
+import 'package:portfolio/core/constants/assets.dart';
 import 'package:portfolio/core/utils/functions.dart';
 
 class ServiceIDoMobile extends StatelessWidget {
@@ -11,19 +11,15 @@ class ServiceIDoMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> _services = const [
       ServiceInfoCard(
-          iconUrl: AssetConstants.androidLogo,
+          iconUrl: Assets.android,
           title: 'Andorid App Development',
           subtitle: ''),
       ServiceInfoCard(
-          iconUrl: AssetConstants.appleLogo,
-          title: 'Ios App Development',
-          subtitle: ''),
+          iconUrl: Assets.apple, title: 'Ios App Development', subtitle: ''),
       ServiceInfoCard(
-          iconUrl: AssetConstants.uiuxLogo,
-          title: 'UI/UX Designing',
-          subtitle: ''),
+          iconUrl: Assets.uiux, title: 'UI/UX Designing', subtitle: ''),
       ServiceInfoCard(
-          iconUrl: AssetConstants.webDevelopmentLogo,
+          iconUrl: Assets.web,
           title: 'Web Development',
           subtitle: '')
     ];
@@ -45,8 +41,8 @@ class ServiceIDoMobile extends StatelessWidget {
           Text(
             "Since the begining of my journey as a developer, I have work in these technologies.My main strength lies in flutter development from last one year",
             style: Theme.of(context).textTheme.bodyMedium,
-            textScaler: TextScaler.linear(textScaleFactor(context),
-            
+            textScaler: TextScaler.linear(
+              textScaleFactor(context),
             ),
             textAlign: TextAlign.center,
           ),
