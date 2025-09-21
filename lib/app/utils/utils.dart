@@ -11,9 +11,12 @@ import 'package:portfolio/core/utils/colors.dart';
 
 List<Widget> body = [
   HomePage(),
-  ServicePage(),
+  AboutPage(),
+  // SkillsPage(),
+  // ServicePage(),
   ProjectPage(),
   ContactPage(),
+  // FooterDesktop(),
   // FooterDesktop(),
 ];
 

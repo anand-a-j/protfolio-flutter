@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/section/home/widgets/home_custom_button.dart';
-import 'package:portfolio/core/utils/functions.dart';
-import 'package:portfolio/core/utils/strings.dart';
-import 'package:lottie/lottie.dart';
+import 'package:portfolio/app/section/home/widgets/home_button.dart';
+import 'package:portfolio/core/constants/app_consts.dart';
+import 'package:portfolio/core/constants/assets.dart';
+import 'package:portfolio/core/theme/app_text_theme.dart';
+import 'package:portfolio/core/utils/colors.dart';
+
+import '../../../core/widgets/animated_gradient_text.dart';
+import 'widgets/star_background.dart';
 
 class HomeDesktop extends StatelessWidget {
   const HomeDesktop({super.key});
@@ -12,110 +16,80 @@ class HomeDesktop extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
 
-    return Container(
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              // Container(
-              //   height: height - 150,
-              //   width: width,
-              //   child: LottieBuilder.asset(
-              //     'assets/lottie/spacebg.json',
-              //     height: height - 300,
-              //     width: width,
-              //     fit: BoxFit.cover,
-              //   ),
-              // ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 150, vertical: 50),
-                height: height,
-                width: width,
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                         Text(
-                            "Hi, I am Anand A J",
-                            style: Theme.of(context).textTheme.displayMedium,
-                            textScaler: TextScaler.linear(textScaleFactor(context)),
-                          ),
-                          SizedBox(height: width * 0.01),
-                           Text(
-                            "Flutter Developer",
-                            style: Theme.of(context).textTheme.headlineMedium,
-                            textAlign: TextAlign.justify,
-                             textScaler:
-                                TextScaler.linear(textScaleFactor(context)),
-                          ),
-                          SizedBox(height: width * 0.01),
-                          Container(
-                            
-                            height: MediaQuery.sizeOf(context).height * 0.08,
-                            width: MediaQuery.sizeOf(context).width * 0.39,
-
-                            child: Text(
-                              aboutMe,
-                              style: Theme.of(context).textTheme.titleMedium,
-                               textScaler:
-                                  TextScaler.linear(textScaleFactor(context)),
-                              textAlign: TextAlign.justify,
-                              maxLines: 3,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          HomeCustomButton()
-                        ],
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Positioned.fill(
+          child: StarField(baseStars: 100, twinkle: true),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppConsts.pWebSide,
+            vertical: 50,
+          ),
+          child: SizedBox(
+            height: height,
+            width: width,
+            child: Center(
+              child: Column(
+                spacing: AppConsts.pLarge,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.grey,
+                    backgroundImage: AssetImage(Assets.me),
+                    radius: 50,
+                  ),
+                  Text(
+                    "Hello, I'm Anand 👋",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "Poppins",
+                    ),
+                  ),
+                  AnimateGradientText(
+                    title: "Crafting Flutter Apps.\nExploring Full-Stack.",
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Text(
+                      "Flutter developer passionate about UI, performance, and app optimization.\nExpanding skills into backend, databases, and full-stack solutions.",
+                      textAlign: TextAlign.center,
+                      style: AppTextTheme.heroSubtitle.copyWith(
+                        fontSize: 20,
+                        color: onPrimaryContainerDim,
                       ),
-                      Stack(
-                        children: [
-                          Container(
-                            height: double.infinity,
-                            width: MediaQuery.sizeOf(context).width * 0.30,
-                            margin: const EdgeInsets.all(20),
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                                // image: DecorationImage(
-                                //   image: NetworkImage(
-                                //       "https://images.unsplash.com/photo-1445233566136-a2a4e2c38bc2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmFja2dyb3VuZCUyMHNwYWNlfGVufDB8fDB8fHww"),
-                                //   fit: BoxFit.cover,
-                                // ),
-                                ),
-                            child: Center(
-                              child: LottieBuilder.asset(
-                                'assets/lottie/coder.json',
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
-
-                          // Positioned.fill(
-                          //   child: Align(
-                          //     alignment: Alignment.center,
-                          //     child: CircleAvatar(
-                          //       radius: 120,
-                          //       backgroundColor: Colors.blue.shade200,
-                          //       backgroundImage: const NetworkImage(
-                          //           "https://images.unsplash.com/photo-1618641986557-1ecd230959aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"),
-                          //     ),
-                          //   ),
-                          // ),
-                        ],
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    spacing: AppConsts.pMedium,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      HomeButton(
+                        title: "About Me",
+                        onTap: () {},
+                      ),
+                      HomeButton(
+                        title: "Let's connect",
+                        onTap: () {},
                       ),
                     ],
                   ),
-                ),
+                  const SizedBox(height: 40),
+                ],
               ),
-            ],
+            ),
           ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }
